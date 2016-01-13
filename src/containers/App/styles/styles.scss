@@ -1,0 +1,42 @@
+/* Global styles */
+/*
+  <App>
+    <div className={styles}>
+      <h1>{'My Routed App'}</h1>
+      <ul>
+        <li><Link to={'/home'}>{'Home'}</Link></li>
+        <li><Link to={'/about'}>{'About'}</Link></li>
+      </ul>
+      <section>
+        <h2>{'Content'}</h2>
+        {children}
+      </section>
+    </div>
+  </App>
+*/
+:local(.styles) {
+  min-height: 100%;
+  & h1 {
+    
+  }
+
+  & div.container-fluid {
+
+  }
+  & ul {
+    list-style: none;
+  }
+  & nav {
+    float: left;
+    border: black solid thick;
+    //text-align: center;
+  }
+  & section {
+    float: right;
+    border: black solid thick;
+
+    & h2 {
+      //text-align: center;
+    }
+  }
+}
