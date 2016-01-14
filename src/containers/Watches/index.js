@@ -2,34 +2,17 @@
 import React, { Component, PropTypes } from 'react';
 /* eslint-enable no-unused-vars*/
 
+import sampleWatchesJSON from 'constants/sampleWatches.json';
+
 import WatchDisplay from 'components/WatchDisplay/';
+import ModalWatch from 'components/ModalWatch/';
 
 class Watches extends Component {
   constructor (props) {
     super(props);
+    let { sampleWatches } = sampleWatchesJSON;
     this.state = {
-      sampleWatches: [{
-        name: 'Burrberry Mark 2',
-        srcUrl: 'http://images.bloomingdales.com/is/image/BLM/products/9/optimized/8304029_fpx.tif'
-      }, {
-        name: 'Burrberry Mark 3',
-        srcUrl: 'http://images.bloomingdales.com/is/image/BLM/products/7/optimized/1282807_fpx.tif'
-      }, {
-        name: 'Burrberry Mark 2',
-        srcUrl: 'http://images.bloomingdales.com/is/image/BLM/products/9/optimized/8304029_fpx.tif'
-      }, {
-        name: 'Burrberry Mark 3',
-        srcUrl: 'http://images.bloomingdales.com/is/image/BLM/products/7/optimized/1282807_fpx.tif'
-      }, {
-        name: 'Burrberry Mark 2',
-        srcUrl: 'http://images.bloomingdales.com/is/image/BLM/products/9/optimized/8304029_fpx.tif'
-      }, {
-        name: 'Burrberry Mark 3',
-        srcUrl: 'http://images.bloomingdales.com/is/image/BLM/products/7/optimized/1282807_fpx.tif'
-      }, {
-        name: 'Burrberry Mark 3',
-        srcUrl: 'http://images.bloomingdales.com/is/image/BLM/products/7/optimized/1282807_fpx.tif'
-      }]
+      sampleWatches
     };
   }
 
@@ -37,7 +20,9 @@ class Watches extends Component {
     console.log('Watches Props: ', this.props);
     let { sampleWatches } = this.state;
     return (
-      <WatchDisplay watches={sampleWatches} />
+      <div>
+        <WatchDisplay watches={sampleWatches} />
+      </div>
     );
   }
 }
