@@ -3,9 +3,7 @@ import React, { Component, PropTypes } from 'react';
 /* eslint-enable no-unused-vars*/
 
 import sampleWatchesJSON from 'constants/sampleWatches.json';
-
 import WatchDisplay from 'components/WatchDisplay/';
-import ModalWatch from 'components/ModalWatch/';
 
 class Watches extends Component {
   constructor (props) {

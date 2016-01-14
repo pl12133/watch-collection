@@ -15,6 +15,6 @@ const Watch = ({srcUrl, alt, name, desc}) => (
 Watch.propTypes = {
   srcUrl: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  desc: PropTypes.string.isRequired,
+  desc: PropTypes.string.isRequired
 };
 export default Watch;
