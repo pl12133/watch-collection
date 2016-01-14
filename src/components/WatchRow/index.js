@@ -3,13 +3,13 @@ import React, { Component, PropTypes } from 'react';
 /* eslint-enable no-unused-vars*/
 
 import { Grid, Row } from 'react-bootstrap';
-import Watch from 'components/Watch/';
+// import Watch from 'components/Watch/';
+import ModalWatch from 'components/ModalWatch/';
 
 const WatchRow = ({watches}) => {
   let watchComponents = watches.map((watch, index) => (
-    <Watch key={`${watch.name}-${index}`}
-           name={watch.name}
-           srcUrl={watch.srcUrl} />
+    <ModalWatch key={`${watch.name}-${index}`}
+                {...watch} />
   ));
   return (
     <Row>
