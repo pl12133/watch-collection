@@ -3,7 +3,11 @@ import React, { Component, PropTypes } from 'react';
 /* eslint-enable no-unused-vars*/
 import { Modal } from 'react-overlays';
 
-import { Col, Image } from 'react-bootstrap';
+import { Col, Image, Fade } from 'react-bootstrap';
+
+import TransitionExample from './transition';
+
+import InjectCSS from 'components/InjectCSS/';
 
 const modalStyle = {
   position: 'fixed',
@@ -25,7 +29,7 @@ const dialogStyle = function () {
   return {
     position: 'absolute',
     left: '50%',
-    top: '50%',
+    // top: '50%',
     transform: 'translate(-50%, -50%)',
     border: '1px solid #e5e5e5',
     maxWidth: '400px',
@@ -39,7 +43,7 @@ const dialogStyle = function () {
 const WatchThumbnail = ({srcUrl, name, desc, onClick}) => (
   <div className={'thumbnail'}>
     <Image style={ { maxHeight: '300px' } } src={srcUrl} alt={name} onClick={onClick} />
-    <div className={'caption'}>
+    <div className={'caption myinjectedCss'}>
       <h3>{name}</h3>
       <p>{desc}</p>
     </div>
@@ -52,6 +56,9 @@ WatchThumbnail.propTypes = {
   onClick: PropTypes.func.isRequired
 };
 // //
+
+
+
 class ModalWatch extends Component {
   constructor (...args) {
     super(...args);
@@ -62,30 +69,40 @@ class ModalWatch extends Component {
     );
 
     this.state = {
+      timeout: 400,
       showModal: false
     };
   }
 
   render () {
     let { srcUrl } = this.props;
+    let { timeout } = this.state;
     return (
       <Col xs={12} md={4}>
         <WatchThumbnail {...this.props} onClick={this.open}/>
-        <Modal
-          aria-labelledby='modal-label'
-          style={modalStyle}
-          backdropStyle={backdropStyle}
-          show={this.state.showModal}
-          onHide={this.close}
-        >
-          <Image style={dialogStyle()} rounded responsive src={srcUrl} />
-        </Modal>
+          <Modal
+            aria-labelledby='modal-label'
+            style={modalStyle}
+            backdropStyle={backdropStyle}
+            show={this.state.showModal}
+            onHide={this.close}
+          >
+            <div>
+              <TransitionExample timeout={timeout} ref={'transition'}>
+                <Image style={dialogStyle()} rounded responsive src={srcUrl} />
+              </TransitionExample>
+            </div>
+          </Modal>
       </Col>
     );
   }
 
   close () {
-    this.setState({ showModal: false });
+    let { toggle } = this.refs.transition
+    if (toggle) {
+      toggle();
+      setTimeout(() => { this.setState({ showModal: false }); }, this.state.timeout);
+    }
   }
 
   open () {
