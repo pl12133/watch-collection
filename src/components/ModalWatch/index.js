@@ -2,12 +2,9 @@
 import React, { Component, PropTypes } from 'react';
 /* eslint-enable no-unused-vars*/
 import { Modal } from 'react-overlays';
+import { Col, Image } from 'react-bootstrap';
 
-import { Col, Image, Fade } from 'react-bootstrap';
-
-import TransitionExample from './transition';
-
-import InjectCSS from 'components/InjectCSS/';
+import SimpleTransition from 'components/SimpleTransition/';
 
 const modalStyle = {
   position: 'fixed',
@@ -23,13 +20,9 @@ const backdropStyle = {
 };
 
 const dialogStyle = function () {
-  // we use some psuedo random coords so modals
-  // don't sit right on top of each other.
-
   return {
     position: 'absolute',
     left: '50%',
-    // top: '50%',
     transform: 'translate(-50%, -50%)',
     border: '1px solid #e5e5e5',
     maxWidth: '400px',
@@ -88,9 +81,13 @@ class ModalWatch extends Component {
             onHide={this.close}
           >
             <div>
-              <TransitionExample timeout={timeout} ref={'transition'}>
+              <SimpleTransition 
+                animations={ ['top 35% 50% 35%', 'opacity 0 1 0', 'left -150% 50% 150%'] }
+                timeout={timeout}
+                ref={'transition'}
+              >
                 <Image style={dialogStyle()} rounded responsive src={srcUrl} />
-              </TransitionExample>
+              </SimpleTransition>
             </div>
           </Modal>
       </Col>
