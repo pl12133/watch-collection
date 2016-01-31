@@ -36,7 +36,7 @@ const dialogStyle = function () {
 const WatchThumbnail = ({srcUrl, name, desc, onClick}) => (
   <div className={'thumbnail'}>
     <Image style={ { maxHeight: '300px' } } src={srcUrl} alt={name} onClick={onClick} />
-    <div className={'caption myinjectedCss'}>
+    <div className={'caption'}>
       <h3>{name}</h3>
       <p>{desc}</p>
     </div>
@@ -49,8 +49,6 @@ WatchThumbnail.propTypes = {
   onClick: PropTypes.func.isRequired
 };
 // //
-
-
 
 class ModalWatch extends Component {
   constructor (...args) {
@@ -81,7 +79,7 @@ class ModalWatch extends Component {
             onHide={this.close}
           >
             <div>
-              <SimpleTransition 
+              <SimpleTransition
                 animations={ ['top 35% 50% 35%', 'opacity 0 1 0', 'left -150% 50% 150%'] }
                 timeout={timeout}
                 ref={'transition'}
@@ -95,7 +93,7 @@ class ModalWatch extends Component {
   }
 
   close () {
-    let { toggle } = this.refs.transition
+    let { toggle } = this.refs.transition;
     if (toggle) {
       toggle();
       setTimeout(() => { this.setState({ showModal: false }); }, this.state.timeout);
