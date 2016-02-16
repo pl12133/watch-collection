@@ -12,7 +12,7 @@ import App from 'containers/App/';
 
 const Routes = () => (
   <Router history={createBrowserHistory()}>
-    <Route path="/" component={App}>
+    <Route path="/watch-collection" component={App}>
       <IndexRoute component={HomePage} />
       <Route path="about" component={About} />
       <Route path="watches" component={Watches} />
