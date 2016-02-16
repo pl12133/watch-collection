@@ -31,7 +31,7 @@ class NavigationHeader extends Component {
       <Navbar inverse fixedTop={fixedTop}>
         <Navbar.Header>
           <Navbar.Brand>
-            <IndexLink to={'/'}>{brand}</IndexLink>
+            <IndexLink to={'/watch-collection/'}>{brand}</IndexLink>
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
