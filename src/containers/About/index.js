@@ -16,7 +16,7 @@ class About extends Component {
         <PageHeader>
           {'A place for watch collectors'}
         </PageHeader>
-        <Link to={'/watches'} className={'btn btn-success'}>
+        <Link to={'/watch-collection/watches'} className={'btn btn-success'}>
           {'View the Collection'}
         </Link>
       </div>

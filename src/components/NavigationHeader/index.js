@@ -37,9 +37,9 @@ class NavigationHeader extends Component {
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav pullRight>
-            <ListLink to={'/'}>{'Home'}</ListLink>
-            <ListLink to={'/about'}>{'About'}</ListLink>
-            <ListLink to={'/watches'}>{'Watches'}</ListLink>
+            <ListLink to={'/watch-collection/'}>{'Home'}</ListLink>
+            <ListLink to={'/watch-collection/about'}>{'About'}</ListLink>
+            <ListLink to={'/watch-collection/watches'}>{'Watches'}</ListLink>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

@@ -18,7 +18,7 @@ const WelcomeJumbo = () => (
             <p>
               {'Witness one of the finest watch collections in New York City'}
             </p>
-            <Link to={'/about'} className={'btn btn-primary'}>
+            <Link to={'/watch-collection/about'} className={'btn btn-primary'}>
               {'Learn More'}
             </Link>
           </div>
