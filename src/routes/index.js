@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars*/
 import React from 'react';
 /* eslint-enable no-unused-vars*/
-import { Router, Route, IndexRoute } from 'react-router';
+import { Router, Route, IndexRoute, Redirect } from 'react-router';
 import createBrowserHistory from 'history/lib/createBrowserHistory';
 
 import HomePage from 'containers/HomePage/';
@@ -12,6 +12,7 @@ import App from 'containers/App/';
 
 const Routes = () => (
   <Router history={createBrowserHistory()}>
+    <Redirect from="/" to="watch-collection" />
     <Route path="watch-collection" component={App}>
       <IndexRoute component={HomePage} />
       <Route path="about" component={About} />
